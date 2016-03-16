@@ -1,6 +1,6 @@
 import QtQuick 2.2
 import QtQuick.Window 2.1
-
+import QtQuick.Controls 1.1
 Window {
     id: mainWin
     width:1980
@@ -8,56 +8,27 @@ Window {
     visibility: "FullScreen"
     color:"blue"
     Rectangle{
+        Page1{
+            anchors.fill: parent
+        }
+    }
 
-        id: depthField
-        color:"#000000"
-        x:0
-        y:mainWin.height - mainWin.height*0.90
-        border.width: 5
-        border.color: "#9E9E9E"
-        width:mainWin.width
-        height: mainWin.height-mainWin.height*0.20
-        z:5
-    }
-    Rectangle{
-        id: timeField
-        x:0
-        y:0
-        height: mainWin.height*0.10;
-        width: mainWin.width*0.25
-        border.width: 5
-        border.color: "#9E9E9E"
-        color :"black"
-    }
-    Rectangle{
-        id: latitudeField
-        x:timeField.width
-        y:0
-        height: mainWin.height*0.10;
+    Button {
+        id: button1
+        height: mainWin.height*0.10
         width: mainWin.width*0.20
-        border.width: 5
-        border.color: "#9E9E9E"
-        color :"black"
+        x: 0
+        y: parent.height-height
+        text: qsTr("Выбор\nстраницы")
     }
-    Rectangle{
-        id: longirudeField
-        x:timeField.width+latitudeField.width
-        y:0
-        height: mainWin.height*0.10;
-        width: mainWin.width*0.20
-        border.width: 5
-        border.color: "#9E9E9E"
-        color :"black"
-    }
-    Rectangle{
-        id: soundSpeedField
-        x:timeField.width+latitudeField.width+longirudeField.width
-        y:0
-        height: mainWin.height*0.10;
-        width: mainWin.width*0.20
-        border.width: 5
-        border.color: "#9E9E9E"
-        color :"black"
+
+    Image {
+        id: image1
+        x:mainWin.width - width
+        width: mainWin.width*0.01
+        y:mainWin.height - mainWin.height*0.90+5
+        height: mainWin.height-mainWin.height*0.20-10
+        source: "qrc:/res/scale.png"
     }
 
 }

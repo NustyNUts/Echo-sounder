@@ -17,3 +17,5 @@ include(deployment.pri)
 HEADERS += \
     eholot.h \
     eholotport.h
+
+OTHER_FILES +=
