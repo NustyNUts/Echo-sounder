@@ -5,7 +5,7 @@ Rectangle {
 
     Rectangle{
         id: depthField
-        color:"#000000"
+        color:"#00f000"
         x:0
         y:mainWin.height - mainWin.height*0.90
         border.width: 5

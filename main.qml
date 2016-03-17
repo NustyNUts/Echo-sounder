@@ -12,10 +12,12 @@ Window {
         if(pageNow === 1)
             page2Show.start();
         else if(pageNow === 2 )
+            memPageShow.start()
+        else if(pageNow === 3)
             page1Show.start();
 
         pageNow++;
-        if(pageNow>2)
+        if(pageNow>3)
             pageNow = 1;
     }
 
@@ -36,7 +38,7 @@ Window {
                     duration:300
                 }
                 PropertyAnimation{
-                    target:page2
+                    target:memPage
                     properties: "anchors.rightMargin"
                     to: -mainWin.width
                     duration:300
@@ -44,7 +46,7 @@ Window {
             }
             ParallelAnimation{
                 PropertyAnimation{
-                    target:page2
+                    target:memPage
                     properties: "anchors.rightMargin"
                     to: mainWin.width
                     duration:0
@@ -71,6 +73,33 @@ Window {
             ParallelAnimation{
                 PropertyAnimation{
                     target:page1
+                    properties: "anchors.rightMargin"
+                    to: mainWin.width
+                    duration:0
+                }
+            }
+         }
+        //open memory page
+        SequentialAnimation{
+            id:memPageShow
+            ParallelAnimation{
+                PropertyAnimation{
+                    target:memPage
+                    properties: "anchors.rightMargin"
+                    to: 0
+                    duration:300
+                }
+                PropertyAnimation{
+                    target:page2
+                    properties: "anchors.rightMargin"
+                    to: -mainWin.width
+                    duration:300
+                }
+
+            }
+            ParallelAnimation{
+                PropertyAnimation{
+                    target:page2
                     properties: "anchors.rightMargin"
                     to: mainWin.width
                     duration:0
@@ -160,6 +189,12 @@ Window {
             anchors.right: parent.left
             anchors.rightMargin: mainWin.width
         }
+        MemPage{
+            id:memPage
+            anchors.right: parent.left
+            anchors.rightMargin: mainWin.width
+        }
+
         Button {
             id: button1
             height: mainWin.height*0.10

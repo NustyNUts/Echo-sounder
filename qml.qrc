@@ -4,5 +4,6 @@
         <file>Page1.qml</file>
         <file>res/scale.png</file>
         <file>Page2.qml</file>
+        <file>MemPage.qml</file>
     </qresource>
 </RCC>
