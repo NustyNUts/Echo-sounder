@@ -5,5 +5,7 @@
         <file>res/scale.png</file>
         <file>Page2.qml</file>
         <file>MemPage.qml</file>
+        <file>Settings.qml</file>
+        <file>EchoPages.qml</file>
     </qresource>
 </RCC>
