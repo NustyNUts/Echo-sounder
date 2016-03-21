@@ -1,6 +1,7 @@
 import QtQuick 2.2
 import QtQuick.Window 2.1
 import QtQuick.Controls 1.1
+import QtQuick.Controls.Styles 1.1
 Window {
     id: mainWin
     width:1980
@@ -9,11 +10,26 @@ Window {
     property string butString: ""
     property bool pageVisible: true
     property int borderWidth:5
-    Rectangle{
-        //animation
+    FontLoader { id: fontLCD; source: "res/a_LCDNovaObl.ttf" }
 
+    Rectangle{
+
+        //animation
+     SequentialAnimation{
+         id:openSettings
+         PropertyAnimation{
+             target:settings
+             property: "visible"
+             to: true
+             duration:0
+         }
+         PropertyAnimation{
+             target:echoPages
+             property: "visible"
+             to:false
+             duration:0
+         }
             ParallelAnimation{
-                id:openSettings
                 PropertyAnimation{
                     target: echoPages
                     property: "opacity"
@@ -27,8 +43,23 @@ Window {
                     duration: 200
                 }
             }
+
+    }
+     SequentialAnimation{
+         id:openPages
+         PropertyAnimation{
+             target:echoPages
+             property: "visible"
+             to:true
+             duration:0
+         }
+         PropertyAnimation{
+             target:settings
+             property: "visible"
+             to:false
+             duration:0
+         }
             ParallelAnimation{
-                id:openPages
                 PropertyAnimation{
                     target: echoPages
                     property: "opacity"
@@ -42,6 +73,8 @@ Window {
                     duration: 200
                 }
             }
+
+     }
 
 
         anchors.fill: parent
@@ -59,14 +92,25 @@ Window {
     }
 
     Button {
+        property string butName: "Настройки"
         id: button1
         height: mainWin.height*0.10
         width: mainWin.width*0.20
         x: mainWin.width - width
         y: mainWin.height - height
-        text: "Settings"
+
+        style:ButtonStyle{
+            label:Label{
+                id: butLabel
+            font.family: fontLCD.name
+            font.pixelSize: width/8
+            horizontalAlignment:TextInput.AlignHCenter
+            verticalAlignment: TextInput.AlignVCenter
+            text: button1.butName
+            }
+        }
         onClicked: {
-            pageVisible === true ? text = "Pages" : text ="Settings"
+            pageVisible === true ? butName = "Страницы" : butName ="Настройки"
             pageVisible === true ? openSettings.start() : openPages.start()
             pageVisible =! pageVisible
         }

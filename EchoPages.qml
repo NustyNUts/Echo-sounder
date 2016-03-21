@@ -1,7 +1,7 @@
 import QtQuick 2.2
 import QtQuick.Window 2.1
 import QtQuick.Controls 1.1
-
+import QtQuick.Controls.Styles 1.1
 
 
 Rectangle{
@@ -124,8 +124,13 @@ Rectangle{
         border.color: "#9E9E9E"
         color :"white"
         Text{
-            anchors.centerIn: parent
+            anchors.fill: parent
+            font.family: fontLCD.name
+            font.pixelSize: width/10
             text: pageName
+            horizontalAlignment: TextInput.AlignHCenter
+            verticalAlignment: TextInput.AlignVCenter
+
         }
     }
     Rectangle{
@@ -138,8 +143,12 @@ Rectangle{
             border.color: "#9E9E9E"
             color :"white"
             Text{
-                anchors.centerIn: parent
+                anchors.fill: parent
                 text: currentTime
+                font.family: fontLCD.name
+                font.pixelSize: width/5
+                horizontalAlignment: TextInput.AlignHCenter
+                verticalAlignment: TextInput.AlignVCenter
             }
         }
         Rectangle{
@@ -152,8 +161,12 @@ Rectangle{
             border.color: "#9E9E9E"
             color :"white"
             Text{
-                anchors.centerIn: parent
+                anchors.fill: parent
                 text: latitude
+                font.family: fontLCD.name
+                font.pixelSize: width/6
+                horizontalAlignment: TextInput.AlignHCenter
+                verticalAlignment: TextInput.AlignVCenter
             }
         }
         Rectangle{
@@ -166,8 +179,12 @@ Rectangle{
             border.color: "#9E9E9E"
             color :"white"
             Text{
-                anchors.centerIn: parent
+                anchors.fill: parent
                 text: longitude
+                font.family: fontLCD.name
+                font.pixelSize: width/6
+                horizontalAlignment: TextInput.AlignHCenter
+                verticalAlignment: TextInput.AlignVCenter
             }
         }
         Rectangle{
@@ -180,9 +197,13 @@ Rectangle{
             border.color: "#9E9E9E"
             color :"white"
             Text{
-                       anchors.centerIn: parent
-                       text: "Ск. звука: "+soundSpeed+" м/с"
-                   }
+                anchors.fill: parent
+                text: "Ск. звука: "+soundSpeed+" м/с"
+                font.family: fontLCD.name
+                font.pixelSize: width/10
+                horizontalAlignment: TextInput.AlignHCenter
+                verticalAlignment: TextInput.AlignVCenter
+            }
         }
 // main page, all echo signals
     Page1{
@@ -209,7 +230,17 @@ Rectangle{
         width: mainWin.width*0.20
         x: 0
         y: mainWin.height-button1.height
-        text: qsTr("Выбор\nстраницы")
+        style:ButtonStyle{
+            label:Label{
+            font.family: fontLCD.name
+            font.pixelSize: width/8
+            horizontalAlignment:TextInput.AlignHCenter
+            verticalAlignment: TextInput.AlignVCenter
+            text: qsTr("Выбор\nстраницы")
+            }
+        }
+
+
         onClicked:{
             slidePages()
         }

@@ -7,5 +7,6 @@
         <file>MemPage.qml</file>
         <file>Settings.qml</file>
         <file>EchoPages.qml</file>
+        <file>res/a_LCDNovaObl.ttf</file>
     </qresource>
 </RCC>
