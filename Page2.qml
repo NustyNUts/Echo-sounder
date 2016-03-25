@@ -12,5 +12,10 @@ Rectangle {
         border.color: "#9E9E9E"
         width:mainWin.width-depthScaleImg.width
         height: mainWin.height-mainWin.height*0.20
+        Canvas{
+            id: echoField1
+            anchors.fill: parent
+
+        }
     }
 }

@@ -1,16 +1,21 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
-#include "eholot.h"
+#include "echocontr.h"
+#include "echoservice.h"
+#include  "echomodel.h"
+
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
-    QQmlContext *context = engine.rootContext();
-    Eholot eholot(context);
-    engine.load(QUrl(QStringLiteral("qrc:///main.qml")));
+    EchoModel *model = new EchoModel();
+    EchoService *service = new EchoService(model);
+    EchoContr controller(model,engine.rootContext());
+
+    engine.load(QUrl(controller.getMainQml()));
 
     return app.exec();
 }

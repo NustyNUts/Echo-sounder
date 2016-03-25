@@ -3,8 +3,10 @@ TEMPLATE = app
 QT += qml quick
 
 SOURCES += main.cpp \
-    eholot.cpp \
-    eholotport.cpp
+    eholotport.cpp \
+    echocontr.cpp \
+    echoservice.cpp \
+    echomodel.cpp
 
 RESOURCES += qml.qrc
 
@@ -15,7 +17,9 @@ QML_IMPORT_PATH =
 include(deployment.pri)
 
 HEADERS += \
-    eholot.h \
-    eholotport.h
+    eholotport.h \
+    echocontr.h \
+    echoservice.h \
+    echomodel.h
 
 OTHER_FILES +=

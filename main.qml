@@ -11,6 +11,9 @@ Window {
     property bool pageVisible: true
     property int borderWidth:5
     FontLoader { id: fontLCD; source: "res/a_LCDNovaObl.ttf" }
+    Canvas{
+
+    }
 
     Rectangle{
 
@@ -88,6 +91,7 @@ Window {
             id: settings
             anchors.fill: parent
             opacity: 0
+            visible: false
         }
     }
 
