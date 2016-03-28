@@ -2,15 +2,17 @@
 #define ECHOSERVICE_H
 
 #include <QObject>
-#include "echomodel.h"
-
+#include "echodata.h"
+/*
+ * all buisness logic application
+ * */
 class EchoService : public QObject
 {
     Q_OBJECT
-    EchoModel *m_model;
+    EchoData *m_model;
 public:
-    explicit EchoService(EchoModel *model,QObject *parent = 0);
-    EchoModel getModel(){
+    explicit EchoService(EchoData *model,QObject *parent = 0);
+    EchoData getModel(){
         return *m_model;
     }
 

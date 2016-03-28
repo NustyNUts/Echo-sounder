@@ -1,13 +1,14 @@
-#ifndef ECHOMODEL_H
-#define ECHOMODEL_H
+#ifndef ECHODATA_H
+#define ECHODATA_H
+
+#include <QObject>
 #include <QTime>
-#include <QString>
-/*
- *Model of echolot without any logic
- * just data contain
-*/
-class EchoModel
+#include <QDate>
+#include <QDebug>
+
+class EchoData
 {
+
     QString m_lat;
     QString m_lon;
     QDate *m_date;
@@ -15,15 +16,20 @@ class EchoModel
     int m_soundSpeed;
     int m_penentration;
 
-    //data from PPU
     int m_depthRange;
     int m_coefGain;
     int m_countCorelatedStop;
     int m_countTrStop;
-    int m_codeFirstIntervalAfterProcessing;
-    int m_timeIntervalBeforeProcessing[10];
-    int m_amlitudeImpStop[10];
+    //correlated depth
+    int m_correlDepth;
+    int m_correlAmplitude;
+    //----------------
+    //depth
+    QList<int> m_depth;
+    QList<int> m_amlitude;
+    //-----------------
 public:
+    EchoData();
     //setters
     void setTime(QString time){
         *m_time = QTime::fromString(time,"hh:mm:ss");
@@ -62,8 +68,18 @@ public:
     int getPenentration(){
         return m_penentration;
     }
+    void setParams(QList<int> d){
+        m_depth.clear();
+        m_depth = d;
+        QVariantList list;
+        QListIterator<int> i(d);
+        while(i.hasNext())
+            list.append(i.next());
 
-    EchoModel();
+    }
+
+
+
 };
 
-#endif // ECHOMODEL_H
+#endif // ECHODATA_H

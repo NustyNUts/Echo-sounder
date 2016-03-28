@@ -11,6 +11,15 @@ Window {
     property bool pageVisible: true
     property int borderWidth:5
     FontLoader { id: fontLCD; source: "res/a_LCDNovaObl.ttf" }
+    function readVal(anArray) {
+        for (var i=0; i<anArray.length; i++)
+            console.log("Array item:", anArray[i])
+    }
+    // MyItem.qml
+    Item {
+
+
+    }
     Canvas{
 
     }
@@ -114,9 +123,10 @@ Window {
             }
         }
         onClicked: {
-            pageVisible === true ? butName = "Страницы" : butName ="Настройки"
-            pageVisible === true ? openSettings.start() : openPages.start()
-            pageVisible =! pageVisible
+//            pageVisible === true ? butName = "Страницы" : butName ="Настройки"
+//            pageVisible === true ? openSettings.start() : openPages.start()
+//            pageVisible =! pageVisible
+            readVal(anArray)
         }
     }
 }

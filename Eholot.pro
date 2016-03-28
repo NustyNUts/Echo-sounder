@@ -6,7 +6,7 @@ SOURCES += main.cpp \
     eholotport.cpp \
     echocontr.cpp \
     echoservice.cpp \
-    echomodel.cpp
+    echodata.cpp
 
 RESOURCES += qml.qrc
 
@@ -20,6 +20,6 @@ HEADERS += \
     eholotport.h \
     echocontr.h \
     echoservice.h \
-    echomodel.h
+    echodata.h
 
 OTHER_FILES +=
