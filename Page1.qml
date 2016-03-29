@@ -37,34 +37,18 @@ Rectangle {
             id: echoField1
             anchors.fill: parent
             onPaint: {
-                                var ctx;
-                                ctx = getContext("2d")
-                                ctx.clearRect(0,0,width,height)
-                                ctx.translate(width-borderWidth,0)
-                                for(var j=0;j<1200;j++){
-                                        //ctx.translate(-j*10,0)
-
-                                    for (var i=0; i<anArray.length; i++){
-                                        ctx.fillStyle=colorArray[i]
-                                        ctx.fillRect(j,anArray[i]+borderWidth*10-pointSize/2
-                                                     ,pointSize,pointSize)
-                                    }
-                                    ctx.translate(-pointSize,0)
-                                    //ctx.translate(-200,0)
+                        var ctx;
+                        ctx = getContext("2d")
+                        ctx.clearRect(0,0,width,height)
+                        ctx.translate(width-borderWidth,0)
+                        for(var j=0;j<1200;j++){
+                            for (var i=0; i<anArray.length; i++){
+                                ctx.fillStyle=colorArray[i]
+                                ctx.fillRect(j,anArray[i]+borderWidth*10-pointSize/2
+                                             ,pointSize,pointSize)
+                            }
+                            ctx.translate(-pointSize,0)
                 }
-            }
-        }
-
-        Button {
-            id: button1
-            x: 0
-            y: -20
-            text: qsTr("Button")
-            onClicked: {
-                console.log("here button")
-                draw()
-                //echoField1.requestPaint()
-                j++
             }
         }
     }

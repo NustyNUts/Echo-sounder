@@ -1,12 +1,15 @@
-#ifndef EHOLOTPORT_H
-#define EHOLOTPORT_H
+#ifndef ECHOPORT_H
+#define ECHOPORT_H
 
 #include <QObject>
-#include "QtSerialPort/QSerialPort"
+#include <QtSerialPort/QSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
 #include <QTimer>
+#include <QStringList>
+#include <QDebug>
+#include <QtGui>
 
-class EholotPort : public QObject
+class EchoPort : public QObject
 {
     Q_OBJECT
     QSerialPort* port;
@@ -18,15 +21,21 @@ class EholotPort : public QObject
     int m_Stop_bits;
     int m_Parity;
     int m_interface;
+    QStringList m_settingsList;
     //----------------
-
+    int m_state;
+private:
+    QByteArray readData(int packageSize);//read data from serial port
+    bool writeData(QByteArray);//write data to port
 public:
-    explicit EholotPort(QObject *parent = 0);
-
+    //explicit EchoPort(QObject *parent = 0, QString comName, int baudRate, int dataBits, int stopBits, int parity);
+    explicit EchoPort(QObject *parent = 0);
 signals:
-
+    void timerStop();
+    void timerStart(int);
+    void sendResponse(QByteArray);
 public slots:
-
+    void getRequest(QByteArray);
 };
 
 #endif // EHOLOTPORT_H
