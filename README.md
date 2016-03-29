@@ -1,1 +1,1 @@
-# Eholot
+# application Echo-sounder for Rpi
