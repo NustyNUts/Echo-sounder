@@ -123,10 +123,10 @@ Window {
             }
         }
         onClicked: {
-//            pageVisible === true ? butName = "Страницы" : butName ="Настройки"
-//            pageVisible === true ? openSettings.start() : openPages.start()
-//            pageVisible =! pageVisible
-            readVal(anArray)
+            pageVisible === true ? butName = "Страницы" : butName ="Настройки"
+            pageVisible === true ? openSettings.start() : openPages.start()
+            pageVisible =! pageVisible
+
         }
     }
 }
