@@ -49,6 +49,10 @@ public:
     void setPenentration(int penentrarion){
         m_penentration = penentrarion;
     }
+    void setCoefGain(int coefGain){
+        m_coefGain = coefGain;
+    }
+
     //getters
     QString getTime(){
         return m_time->toString("hh:mm:ss");
@@ -68,6 +72,7 @@ public:
     int getPenentration(){
         return m_penentration;
     }
+
     void setParams(QList<int> d){
         m_depth.clear();
         m_depth = d;
@@ -75,8 +80,8 @@ public:
         QListIterator<int> i(d);
         while(i.hasNext())
             list.append(i.next());
-
     }
+
 
 
 

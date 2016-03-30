@@ -28,8 +28,9 @@ private:
     QByteArray readData(int packageSize);//read data from serial port
     bool writeData(QByteArray);//write data to port
 public:
-    //explicit EchoPort(QObject *parent = 0, QString comName, int baudRate, int dataBits, int stopBits, int parity);
     explicit EchoPort(QObject *parent = 0);
+    EchoPort( QString comName, int baudRate, int dataBits, int stopBits, int parity,QObject *parent = 0);
+
 signals:
     void timerStop();
     void timerStart(int);

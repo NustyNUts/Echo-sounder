@@ -1,20 +1,20 @@
 #include "eholotport.h"
 
-//EchoPort::EchoPort(QObject *parent,QString comName,int baudRate,int dataBits,
-//                   int stopBits,int parity) :
-//    QObject(parent)
-//{
-//    m_state = 0;
-//    //init settings for linux and RPi
-//   m_name_COM = comName;
-//   m_Baud_rate = baudRate;
-//   m_Number_of_data_bits = dataBits;
-//   m_interface = 0;
-//   m_Parity = parity;
-//   m_Stop_bits = stopBits;
-//   //create list settings
-//   m_settingsList<<m_name_COM<<QString::number(m_Baud_rate)<<QString::number(m_Number_of_data_bits)<<QString::number(m_Stop_bits)<<QString::number(m_Parity);
-//}
+EchoPort::EchoPort(QString comName, int baudRate, int dataBits,
+                   int stopBits, int parity, QObject *parent) :
+    QObject(parent)
+{
+    m_state = 0;
+    //init settings for linux and RPi
+   m_name_COM = comName;
+   m_Baud_rate = baudRate;
+   m_Number_of_data_bits = dataBits;
+   m_interface = 0;
+   m_Parity = parity;
+   m_Stop_bits = stopBits;
+   //create list settings
+   m_settingsList<<m_name_COM<<QString::number(m_Baud_rate)<<QString::number(m_Number_of_data_bits)<<QString::number(m_Stop_bits)<<QString::number(m_Parity);
+}
 
 EchoPort::EchoPort(QObject *parent) :
  QObject(parent),m_name_COM("ttyUSB0"),m_interface(0),
@@ -50,7 +50,7 @@ QByteArray EchoPort::readData(int packageSize){
         while(m_state){
             qint64 byteAvail = port->bytesAvailable();
             qApp->processEvents();
-            QThread::msleep(10);
+            QThread::msleep(5);
             if(byteAvail >=packageSize){
                 return port->readAll();
                  m_state=0;

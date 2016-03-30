@@ -14,16 +14,20 @@ class EchoService : public QObject
     EchoData *m_model;
     EchoPort *m_port;
     QTimer *m_timer;
+    QByteArray pacToPort;
+    QByteArray pacFromPort;
 public:
     explicit EchoService(EchoData *model,QObject *parent = 0);
     EchoData getModel(){
         return *m_model;
     }
 
+
 signals:
     void portRequest(QByteArray);
 public slots:
-    void getRespounse(QByteArray);
+    QByteArray getRespounse();
+    void createPac(QMap<QString,QVariant> map);
 };
 
 #endif // ECHOSERVICE_H

@@ -3,8 +3,9 @@
 EchoContr::EchoContr(EchoData *echoData,QQmlContext *context,QObject *parent) :
     QObject(parent)
 {
+    //init view
     m_context = context;
-    m_context->setContextProperty("eholot",this);
+    m_context->setContextProperty("controller",this);
     m_context->setContextProperty("currentTime",echoData->getTime());
     m_context->setContextProperty("latitude",echoData->getLat());
     m_context->setContextProperty("longitude", echoData->getLon());
@@ -12,7 +13,7 @@ EchoContr::EchoContr(EchoData *echoData,QQmlContext *context,QObject *parent) :
     m_context->setContextProperty("currentData",echoData->getDate());
     m_context->setContextProperty("penentration",echoData->getPenentration());
     m_context->setContextProperty("depthRange",1);
-
+    //--------------------
     QList<int> depthList;
     QList<QString> colorList;
     //test depth array

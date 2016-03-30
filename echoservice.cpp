@@ -7,6 +7,10 @@ EchoService::EchoService(EchoData *model,QObject *parent) :
     m_port = new EchoPort();
 }
 
-void EchoService::getRespounse(QByteArray arr){
+QByteArray EchoService::getRespounse(){
+
+}
+
+void EchoService::createPac(QMap<QString, QVariant> map){
 
 }

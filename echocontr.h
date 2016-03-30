@@ -4,6 +4,7 @@
 #include <QtQuick>
 #include <QObject>
 #include <QQmlContext>
+#include <QTimer>
 #include <QVariantList>
 #include "echodata.h"
 /*
@@ -16,6 +17,7 @@ class EchoContr : public QObject
     Q_OBJECT
     QQmlContext *m_context;
     QVariantList depthList;
+    QTimer *timer;
 public:
     explicit EchoContr(EchoData *echoModel,QQmlContext *context,QObject *parent=0);
 
